@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+    <title></title>
+</head>
+<body>
+<h1>계산기</h1>
+<input type="button" value="무기" onclick="weapon()">
+</body>
+<script>
+    function weapon() {
+        location.href = '/weapon';
+    }
+
+    $(function () {
+        alert('최초값' + Calc.add(100) + '에서'
+                + '\n50을 빼고, ' + Calc.sub(50)
+                + '\n2를 곱한 후' + Calc.mul(2)
+                + '\n10으로 나누면' + Calc.div(10) + '이다.');
+    });
+    var Calc = (function () {
+        var curr = 0;
+        var add = function (val) {
+            curr += val;
+            return curr;
+        };
+
+        var sub = function (val) {
+            curr -= val;
+            return curr;
+        };
+
+        var mul = function (val) {
+            curr *= val;
+            return curr;
+        };
+
+        var div = function (val) {
+            curr /= val;
+            return curr;
+        };
+
+        return {
+            add : add,
+            sub : sub,
+            mul : mul,
+            div : div
+        };
+    })();
+</script>
+</html>
